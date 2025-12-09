@@ -12,9 +12,11 @@ class Address(models.Model):
 
     def __str__(self):
         return f'{self.number} {self.street}'
-    
+
     class Meta:
         db_table = "oc_lettings_site_address"
+        verbose_name = "Address"
+        verbose_name_plural = "Addresses"
 
 
 class Letting(models.Model):
@@ -23,6 +25,8 @@ class Letting(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         db_table = "oc_lettings_site_letting"
+        verbose_name = "Letting"
+        verbose_name_plural = "Lettings"

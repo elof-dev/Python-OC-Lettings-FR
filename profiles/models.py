@@ -8,6 +8,8 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
-    
+
     class Meta:
         db_table = "oc_lettings_site_profile"
+        verbose_name = "Profile"
+        verbose_name_plural = "Profiles"
