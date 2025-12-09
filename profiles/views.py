@@ -6,6 +6,8 @@ from .models import Profile
 
 
 def index(request):
+    """    Affiche la liste des profils utilisateurs.
+    Récupère toutes les instances du modèle Profile et les passe au template index.html."""
     profiles_list = Profile.objects.all()
     return render(request, "profiles/index.html", {"profiles_list": profiles_list})
 
@@ -16,5 +18,8 @@ def index(request):
 
 
 def profile(request, username):
+    """    Affiche les détails d'un profil utilisateur spécifique.
+    Récupère l'instance du modèle Profile correspondant à username
+    et la passe au template profile.html."""
     profile = get_object_or_404(Profile, user__username=username)
     return render(request, "profiles/profile.html", {"profile": profile})

@@ -8,5 +8,6 @@ urlpatterns = [
     path("<int:letting_id>/", views.letting, name="letting"),
 ]
 
+# Gestionnaires d'erreurs personnalisés
 handler500 = 'handlers.views.custom_500_view'
 handler404 = 'handlers.views.custom_404_view'

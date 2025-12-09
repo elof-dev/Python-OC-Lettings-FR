@@ -7,6 +7,8 @@ from .models import Letting
 
 
 def index(request):
+    """    Affiche la liste des locations disponibles.
+    Récupère toutes les instances du modèle Letting et les passe au template index.html."""
     lettings_list = Letting.objects.all()
     return render(request, "lettings/index.html", {"lettings_list": lettings_list})
 
@@ -22,6 +24,9 @@ def index(request):
 
 
 def letting(request, letting_id):
+    """    Affiche les détails d'une location spécifique.
+    Récupère l'instance du modèle Letting correspondant à letting_id
+    et la passe au template letting.html."""
     letting = get_object_or_404(Letting, id=letting_id)
     return render(
         request,
