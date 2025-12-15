@@ -1,0 +1,7 @@
+[run]
+omit =
+    profiles/tests/* 
+    oc_lettings _site/tests/*
+    lettings/tests/*
+    oc_lettings_site/asgi.py
+    oc_lettings_site/wsgi.py

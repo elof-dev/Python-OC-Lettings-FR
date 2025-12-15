@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class LettingsConfig(AppConfig):
+class LettingsConfig(AppConfig) :
     """
     Configuration de l'application Lettings.
     """

@@ -5,7 +5,7 @@ from .models import Profile
 # faucibus, urna quis auctor pharetra, massa dolor cursus neque, quis dictum lacus d
 
 
-def index(request):
+def index(request) -> render:
     """    Affiche la liste des profils utilisateurs.
     Récupère toutes les instances du modèle Profile et les passe au template index.html."""
     profiles_list = Profile.objects.all()
@@ -17,7 +17,7 @@ def index(request):
 # senectus et netus et males
 
 
-def profile(request, username):
+def profile(request, username) -> render:
     """    Affiche les détails d'un profil utilisateur spécifique.
     Récupère l'instance du modèle Profile correspondant à username
     et la passe au template profile.html."""

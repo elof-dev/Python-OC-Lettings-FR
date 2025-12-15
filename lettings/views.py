@@ -6,7 +6,7 @@ from .models import Letting
 # orci luctus et ultrices posuere cubilia curae; Cras eget scelerisque
 
 
-def index(request):
+def index(request) -> render:
     """    Affiche la liste des locations disponibles.
     Récupère toutes les instances du modèle Letting et les passe au template index.html."""
     lettings_list = Letting.objects.all()
@@ -14,7 +14,7 @@ def index(request):
 
 
 # Cras ultricies dignissim purus, vitae hendrerit ex varius non. In accumsan porta nisl id eleifend. Praesent dignissim, odio eu consequat pretium, purus urna vulputate arcu, vitae efficitur
-#  lacus justo nec purus. Aenean finibus faucibus lectus at porta. Maecenas auctor, est ut luctus congue, dui enim mattis enim, ac condimentum velit libero in magna. Suspendisse potenti. In tempus a nisi sed laoreet.
+# lacus justo nec purus. Aenean finibus faucibus lectus at porta. Maecenas auctor, est ut luctus congue, dui enim mattis enim, ac condimentum velit libero in magna. Suspendisse potenti. In tempus a nisi sed laoreet.
 # Suspendisse porta dui eget sem accumsan interdum. Ut quis urna
 # pellentesque justo mattis ullamcorper ac non tellus. In tristique mauris
 # eu velit fermentum, tempus pharetra est luctus. Vivamus consequat
@@ -23,7 +23,7 @@ def index(request):
 # tincidunt enim, ac lacinia augue pulvinar sit amet.
 
 
-def letting(request, letting_id):
+def letting(request, letting_id) -> render:
     """    Affiche les détails d'une location spécifique.
     Récupère l'instance du modèle Letting correspondant à letting_id
     et la passe au template letting.html."""
