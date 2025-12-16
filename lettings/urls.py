@@ -9,5 +9,5 @@ urlpatterns = [
 ]
 
 # Gestionnaires d'erreurs personnalisés
-handler500 = 'handlers.views.custom_500_view'
-handler404 = 'handlers.views.custom_404_view'
+handler500 = "handlers.views.custom_500_view"
+handler404 = "handlers.views.custom_404_view"

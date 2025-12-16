@@ -5,4 +5,5 @@ class ProfilesConfig(AppConfig):
     """
     Configuration de l'application Profiles.
     """
-    name = 'profiles'
+
+    name = "profiles"

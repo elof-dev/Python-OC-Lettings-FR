@@ -5,6 +5,7 @@ from profiles.models import Profile
 
 User = get_user_model()
 
+
 class ProfileViewsTest(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(username="bob", password="pw")

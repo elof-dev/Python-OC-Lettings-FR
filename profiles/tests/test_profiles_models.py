@@ -4,6 +4,7 @@ from profiles.models import Profile
 
 User = get_user_model()
 
+
 class ProfileModelTest(TestCase):
     def test_profile_str_and_meta(self):
         user = User.objects.create_user(username="alice", password="pw")

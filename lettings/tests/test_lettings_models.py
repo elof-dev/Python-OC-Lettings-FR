@@ -15,45 +15,50 @@ class LettingsModelsTest(TestCase):
         )
 
     def test_address_str(self):
-        a = Address.objects.create(
-            number=5, street="Rue Exemple", city="Lyon", state="FR", zip_code=69001, country_iso_code="FRA"
+        address = Address.objects.create(
+            number=5,
+            street="Rue Exemple",
+            city="Lyon",
+            state="FR",
+            zip_code=69001,
+            country_iso_code="FRA",
         )
-        self.assertEqual(str(a), "5 Rue Exemple")
+        self.assertEqual(str(address), "5 Rue Exemple")
 
     def test_letting_str_and_relation(self):
-        a = self.make_valid_address()
-        a.full_clean()
-        a.save()
-        l = Letting.objects.create(title="Belle maison", address=a)
-        self.assertEqual(str(l), "Belle maison")
+        address = self.make_valid_address()
+        address.full_clean()
+        address.save()
+        letting = Letting.objects.create(title="Belle maison", address=address)
+        self.assertEqual(str(letting), "Belle maison")
         # relation OneToOne fonctionne
-        self.assertEqual(l.address, a)
+        self.assertEqual(letting.address, address)
 
     def test_valid_address_full_clean_passes(self):
-        a = self.make_valid_address()
+        address = self.make_valid_address()
         # ne doit pas lever
-        a.full_clean()
+        address.full_clean()
 
     def test_state_min_length_validator_raises(self):
-        a = self.make_valid_address()
-        a.state = "F"  # trop court (minLength 2)
+        address = self.make_valid_address()
+        address.state = "F"  # trop court (minLength 2)
         with self.assertRaises(ValidationError):
-            a.full_clean()
+            address.full_clean()
 
     def test_country_iso_code_min_length_validator_raises(self):
-        a = self.make_valid_address()
-        a.country_iso_code = "FR"  # trop court (minLength 3)
+        address = self.make_valid_address()
+        address.country_iso_code = "FR"  # trop court (minLength 3)
         with self.assertRaises(ValidationError):
-            a.full_clean()
+            address.full_clean()
 
     def test_number_max_value_validator_raises(self):
-        a = self.make_valid_address()
-        a.number = 10000  # supérieur au MaxValueValidator(9999)
+        address = self.make_valid_address()
+        address.number = 10000  # supérieur au MaxValueValidator(9999)
         with self.assertRaises(ValidationError):
-            a.full_clean()
+            address.full_clean()
 
     def test_zip_code_max_value_validator_raises(self):
-        a = self.make_valid_address()
-        a.zip_code = 100000  # supérieur au MaxValueValidator(99999)
+        address = self.make_valid_address()
+        address.zip_code = 100000  # supérieur au MaxValueValidator(99999)
         with self.assertRaises(ValidationError):
-            a.full_clean()
+            address.full_clean()

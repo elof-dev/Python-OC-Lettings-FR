@@ -4,10 +4,12 @@ from oc_lettings_site import views as site_views
 from lettings import views as lettings_views
 from profiles import views as profiles_views
 
+
 class UrlsTests(SimpleTestCase):
     """
     Tests des résolutions d'URL pour le site OC Lettings.
     """
+
     def test_index_resolves_to_index_view(self):
         # récupère index view
         url = reverse("index")

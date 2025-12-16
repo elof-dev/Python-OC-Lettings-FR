@@ -21,15 +21,15 @@ class LettingsViewsTest(TestCase):
         self.assertTemplateUsed(resp, "lettings/index.html")
 
     def test_index_contains_lettings_list(self):
-        addr = self.make_address()
-        letting = Letting.objects.create(title="Maison Test", address=addr)
+        address = self.make_address()
+        letting = Letting.objects.create(title="Maison Test", address=address)
         resp = self.client.get(reverse("lettings:index"))
         self.assertIn("lettings_list", resp.context)
         self.assertEqual(list(resp.context["lettings_list"]), [letting])
 
     def test_letting_detail_status_and_context(self):
-        addr = self.make_address(number=2, street="Rue Exemple", city="Lyon", zip_code=69001)
-        letting = Letting.objects.create(title="Bel Appartement", address=addr)
+        address = self.make_address(number=2, street="Rue Exemple", city="Lyon", zip_code=69001)
+        letting = Letting.objects.create(title="Bel Appartement", address=address)
         url = reverse("lettings:letting", kwargs={"letting_id": letting.id})
         resp = self.client.get(url)
         self.assertEqual(resp.status_code, 200)

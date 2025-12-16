@@ -9,6 +9,7 @@ def custom_404_view(request, exception):
     """
     return render(request, "404.html", status=404)
 
+
 def custom_500_view(request):
     """
     Gestionnaire de la page d'erreur 500 personnalisée

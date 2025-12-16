@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
+
 class IndexViewTest(TestCase):
     def test_index_status_code_and_template(self):
         """

@@ -1,20 +1,24 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Letting
 
-# Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit. Sed non placerat massa. Integer est nunc, pulvinar a
+# Aenean leo magna, vestibulum et tincidunt fermentum, consectetur quis velit. Sed non placerat mas
+# sa. Integer est nunc, pulvinar a
 # tempor et, bibendum id arcu. Vestibulum ante ipsum primis in faucibus
 # orci luctus et ultrices posuere cubilia curae; Cras eget scelerisque
 
 
 def index(request) -> render:
-    """    Affiche la liste des locations disponibles.
+    """Affiche la liste des locations disponibles.
     Récupère toutes les instances du modèle Letting et les passe au template index.html."""
     lettings_list = Letting.objects.all()
     return render(request, "lettings/index.html", {"lettings_list": lettings_list})
 
 
-# Cras ultricies dignissim purus, vitae hendrerit ex varius non. In accumsan porta nisl id eleifend. Praesent dignissim, odio eu consequat pretium, purus urna vulputate arcu, vitae efficitur
-# lacus justo nec purus. Aenean finibus faucibus lectus at porta. Maecenas auctor, est ut luctus congue, dui enim mattis enim, ac condimentum velit libero in magna. Suspendisse potenti. In tempus a nisi sed laoreet.
+# Cras ultricies dignissim purus, vitae hendrerit ex varius non. In accumsan porta nisl id
+# eleifend. Praesent dignissim, odio eu consequat pretium, purus urna vulputate arcu, vitae
+# efficitur lacus justo nec purus. Aenean finibus faucibus lectus at porta. Maecenas
+# auctor, est ut luctus congue, dui enim mattis enim, ac condimentum velit libero in magna.
+# Suspendisse potenti. In tempus a nisi sed laoreet.
 # Suspendisse porta dui eget sem accumsan interdum. Ut quis urna
 # pellentesque justo mattis ullamcorper ac non tellus. In tristique mauris
 # eu velit fermentum, tempus pharetra est luctus. Vivamus consequat
@@ -24,7 +28,7 @@ def index(request) -> render:
 
 
 def letting(request, letting_id) -> render:
-    """    Affiche les détails d'une location spécifique.
+    """Affiche les détails d'une location spécifique.
     Récupère l'instance du modèle Letting correspondant à letting_id
     et la passe au template letting.html."""
     letting = get_object_or_404(Letting, id=letting_id)

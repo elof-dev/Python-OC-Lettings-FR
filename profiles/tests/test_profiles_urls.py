@@ -2,6 +2,7 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve, NoReverseMatch, Resolver404
 from profiles import views
 
+
 class ProfileUrlsTest(SimpleTestCase):
     def test_index_resolves_to_index_view(self):
         url = reverse("profiles:index")

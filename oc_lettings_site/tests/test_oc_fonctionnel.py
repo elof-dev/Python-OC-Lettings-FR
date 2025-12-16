@@ -1,9 +1,11 @@
 from django.test import TestCase, override_settings
 from django.urls import reverse
 
+
 class FunctionalSiteTests(TestCase):
     def test_index_links_and_navigation(self):
-        """Vérifie que l'index contient les liens vers profiles et lettings et que ces pages répondent 200."""
+        """Vérifie que l'index contient les liens vers profiles et lettings
+        et que ces pages répondent 200."""
         resp = self.client.get(reverse("index"))
         self.assertEqual(resp.status_code, 200)
         # liens présents

@@ -1,0 +1,9 @@
+[tool.black]
+line-length = 99
+exclude = '''
+/(
+    \.venv
+  | migrations
+  | __pycache__
+)/
+'''
