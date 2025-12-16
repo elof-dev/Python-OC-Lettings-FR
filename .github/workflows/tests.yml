@@ -1,0 +1,38 @@
+# c'est le nom du workflow
+name: Tests
+# déclencheur du workflow
+on:
+  # déclenche le workflow sur les  branches et les pull requests
+  push:
+    branches:
+      # teste les branches main et master
+      - "**"
+  pull_request:
+# jobs : c'est la section qui contient tous les jobs à exécuter par le workflow
+jobs:
+  # nom du job
+  tests:
+    # environnement d'exécution du job
+    runs-on: ubuntu-latest
+    # étapes du job
+    steps:
+      # commence par checkout le code car par défaut le code n'est pas présent
+      # checkout le code veut dire cloner le dépôt GitHub dans l'environnement d'exécution
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # ensuite configure Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      # installe les dépendances
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run flake8
+        run: flake8 .
+
+      - name: Run tests with coverage
+        run: pytest --cov=. --cov-report=term-missing --cov-fail-under=80
