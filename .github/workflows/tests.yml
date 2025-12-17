@@ -39,7 +39,10 @@ jobs:
 
   docker:
     runs-on: ubuntu-latest
+    # Ce job dépend du job "tests" et ne s'exécute que sur la branche master
+    # et si le job "tests" a réussi
     needs: tests
+    # n'exécute ce job que sur la branche master
     if: github.ref == 'refs/heads/master'
 
     steps:
