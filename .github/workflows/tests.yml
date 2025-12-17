@@ -43,5 +43,11 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Docker step placeholder
-        run: echo "Docker job will run only on master after tests"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t oc-lettings .
