@@ -1,7 +1,13 @@
 [run]
+source =
+    oc_lettings_site
+    lettings
+    profiles
 omit =
-    profiles/tests/* 
-    oc_lettings _site/tests/*
-    lettings/tests/*
+    */tests/*
+    */migrations/*
     oc_lettings_site/asgi.py
     oc_lettings_site/wsgi.py
+
+[report]
+show_missing = True
