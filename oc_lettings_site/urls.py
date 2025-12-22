@@ -9,3 +9,7 @@ urlpatterns = [
     path("profiles/", include(("profiles.urls", "profiles"), namespace="profiles")),
     path("admin/", admin.site.urls),
 ]
+
+# Gestionnaires d'erreurs personnalisés
+handler500 = "handlers.views.custom_500_view"
+handler404 = "handlers.views.custom_404_view"
